@@ -1,0 +1,55 @@
+@keyframes football {
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes left {
+  0% {
+    transform: translateX(40rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes right {
+  0% {
+    transform: translateX(-70rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes title-down {
+  0% {
+    transform: translateY(-30rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes title-up {
+  0% {
+    transform: translateY(35rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrows {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(2rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
