@@ -12,13 +12,62 @@ $details-color: #007a1d;
   overflow: hidden;
   position: relative;
 
+  label {
+    width: 60px;
+    height: 34px;
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+
+    input {
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      &:checked + span {
+        background-color: $details-color;
+        box-shadow: 1px 1px 5px #0006;
+      }
+
+      &:checked + span:before {
+        transform: translateX(100%);
+      }
+    }
+
+    span {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      border-radius: 2rem;
+      transition: all 0.5s;
+      box-shadow: 1px 1px 5px #000;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #fff;
+        border-radius: 2rem;
+        transition: all 0.5s;
+      }
+    }
+  }
+
   .title {
     font-size: 5rem;
     display: grid;
     align-items: center;
     line-height: 5rem;
+    position: relative;
 
-    & * {
+    & *:not(.football-container) {
       display: inline-block;
       animation-name: title-up;
       animation-duration: 1.5s;
@@ -26,36 +75,20 @@ $details-color: #007a1d;
       animation-fill-mode: both;
     }
 
-    & :last-child {
+    & :nth-child(2) {
       animation-name: title-down;
     }
-  }
 
-  .presentation {
-    font-size: 2rem;
-    width: 15rem;
-    position: relative;
-
-    span {
-      margin-inline-end: 0.4rem;
-      display: inline-block;
+    .football-container {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
       animation-duration: 2s;
       animation-delay: 1.5s;
       animation-fill-mode: both;
       animation-name: left;
-    }
-
-    span.right {
-      animation-name: right;
-    }
-
-    .football-container {
-      width: 5rem;
-      height: 5rem;
-      position: absolute;
-      bottom: 0;
-      left: 11rem;
-      text-align: center;
 
       .football {
         width: 3rem;
@@ -64,6 +97,25 @@ $details-color: #007a1d;
         animation-duration: 3s;
         animation-fill-mode: both;
         display: block;
+      }
+    }
+
+    .presentation {
+      font-size: 2rem;
+      width: 15rem;
+      position: relative;
+
+      span {
+        margin-inline-end: 0.4rem;
+        display: inline-block;
+        animation-duration: 2s;
+        animation-delay: 1.5s;
+        animation-fill-mode: both;
+        animation-name: left;
+      }
+
+      span.right {
+        animation-name: right;
       }
     }
   }
@@ -78,6 +130,7 @@ $details-color: #007a1d;
     animation-duration: 1.5s;
     animation-delay: 2s;
     animation-fill-mode: both;
+    font-size: 0.8rem;
 
     .button {
       background-color: transparent;
@@ -100,6 +153,34 @@ $details-color: #007a1d;
         animation-iteration-count: infinite;
         display: block;
       }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .header {
+    .title {
+      span {
+        font-size: 9rem;
+        line-height: 9rem;
+      }
+      .football-container {
+        right: 3rem;
+        bottom: 3rem;
+
+        .football {
+          width: 4rem;
+        }
+      }
+    }
+
+    .presentation {
+      width: 30rem;
+      font-size: 3rem;
+    }
+
+    .anim-button-container {
+      font-size: 1rem;
     }
   }
 }

@@ -19,28 +19,32 @@ html {
 }
 
 .main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
   & .widget {
-    width: 30rem;
-    height: 17rem;
+    width: 100%;
+    height: min-content;
     margin: 5rem auto;
-    background-color: lighten($secondary-color, 50%);
-    border-radius: 3rem;
+    background-color: #71c68e;
+    border-radius: 1.6rem;
     border: 2px solid $secondary-color;
     display: grid;
     justify-content: center;
 
     .table {
-      width: 25rem;
-      height: 14rem;
+      width: 100%;
+      height: 25rem;
 
       &,
       td,
       th {
         border-collapse: collapse;
-        border-left: 1px solid #0005;
-        border-right: 1px solid #0005;
-        padding: 0.3rem;
+        padding: 0.3rem 0.9rem;
         text-align: center;
+        border-bottom: 1px solid #0005;
       }
     }
   }
