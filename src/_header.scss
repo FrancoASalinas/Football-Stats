@@ -13,16 +13,12 @@ $details-color: #007a1d;
   position: relative;
 
   .title {
-    font-size: 12rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: -5rem;
-    position: relative;
-    margin-block-start: 10rem;
-    line-height: 1em;
+    font-size: 5rem;
+    display: grid;
+    align-items: center;
+    line-height: 5rem;
 
-    & span:first-child {
+    & * {
       display: inline-block;
       animation-name: title-up;
       animation-duration: 1.5s;
@@ -30,12 +26,8 @@ $details-color: #007a1d;
       animation-fill-mode: both;
     }
 
-    & span:nth-child(2) {
-      display: inline-block;
+    & :last-child {
       animation-name: title-down;
-      animation-duration: 1.5s;
-      animation-delay: 1.5s;
-      animation-fill-mode: both;
     }
   }
 
@@ -43,44 +35,30 @@ $details-color: #007a1d;
     font-size: 2rem;
     width: 15rem;
     position: relative;
-    top: -12rem;
-    left: 13rem;
 
     span {
       margin-inline-end: 0.4rem;
-    }
-
-    span.left {
       display: inline-block;
-      animation-name: left;
       animation-duration: 2s;
       animation-delay: 1.5s;
       animation-fill-mode: both;
+      animation-name: left;
     }
 
     span.right {
-      display: inline-block;
       animation-name: right;
-      animation-duration: 2s;
-      animation-delay: 1.5s;
-      animation-fill-mode: both;
     }
 
     .football-container {
-      animation-name: left;
-      animation-duration: 2s;
-      animation-delay: 1.5s;
-      animation-fill-mode: both;
-      width: auto;
-      height: auto;
+      width: 5rem;
+      height: 5rem;
       position: absolute;
-      top: 7rem;
+      bottom: 0;
       left: 11rem;
+      text-align: center;
 
       .football {
         width: 3rem;
-        height: auto;
-        position: absolute;
         animation-name: football;
         animation-iteration-count: infinite;
         animation-duration: 3s;
@@ -92,10 +70,10 @@ $details-color: #007a1d;
 
   .anim-button-container {
     position: absolute;
-    top: 86%;
+    top: 84%;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1em;
     animation-name: title-up;
     animation-duration: 1.5s;
     animation-delay: 2s;
@@ -104,8 +82,8 @@ $details-color: #007a1d;
     .button {
       background-color: transparent;
       border: solid 2px #000;
-      font-size: 2rem;
-      padding: 0.8rem;
+      font-size: 2em;
+      padding: 0.8em;
       border-radius: 1rem;
       cursor: pointer;
     }
@@ -115,72 +93,12 @@ $details-color: #007a1d;
       &::before {
         content: '╲╱';
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1em;
         animation-name: arrows;
         animation-duration: 1.4s;
         animation-delay: 0.8s;
         animation-iteration-count: infinite;
         display: block;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .header {
-    height: 100vh;
-    background-color: $primary-color;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-
-    .title {
-      justify-content: center;
-      margin-block-start: 5rem;
-
-      & span {
-        font-size: 8rem;
-        line-height: 8rem;
-      }
-    }
-
-    .presentation {
-      font-size: 2rem;
-      width: 30rem;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      .football-container {
-        top: -5rem;
-        left: 20rem;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 460px) {
-  .header {
-    gap: 4rem;
-
-    .title {
-      & span {
-        font-size: 5rem;
-        line-height: 5rem;
-      }
-    }
-
-    .presentation {
-      width: 20rem;
-
-      .football-container {
-        top: 10rem;
-        left: 9rem;
       }
     }
   }
