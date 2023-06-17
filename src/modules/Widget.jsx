@@ -1,10 +1,14 @@
-export default function Widget({ label, topScorers, tableHeaders }) {
+export default function Widget({ label, topScorers, tableHeaders, api }) {
   return (
     <article className="widget">
       <table className="table">
         <caption>{label}</caption>
         <TableHeaders tableHeaders={tableHeaders} />
-        <TableItems1 topScorers={topScorers} itemsNumber={5} />
+        {api ? (
+          <TableItemsAPI topScorers={topScorers} itemsNumber={5} />
+        ) : (
+          <TableItemsMock topScorers={topScorers} itemsNumber={5} />
+        )}
       </table>
     </article>
   );
@@ -20,7 +24,24 @@ function TableHeaders({ tableHeaders }) {
   );
 }
 
-function TableItems1({ topScorers, itemsNumber }) {
+function TableItemsMock({ topScorers, itemsNumber }) {
+  console.log(topScorers);
+  return (
+    topScorers.length > 0 &&
+    topScorers.map(
+      (item, index) =>
+        index < itemsNumber && (
+          <tr>
+            <td>{item.player.name}</td>
+            <td>{item.statistics.goals}</td>
+            <td>{item.statistics.team.name}</td>
+          </tr>
+        )
+    )
+  );
+}
+
+function TableItemsAPI({ topScorers, itemsNumber }) {
   console.log(topScorers);
   return (
     topScorers.length > 0 &&

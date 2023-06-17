@@ -29,7 +29,7 @@ export default function Header({ onCheck, onClick }) {
       <div className="anim-button-container">
         <div className="anim-arrow"></div>
         <button className="button" onClick={onClick}>
-          Let's go!
+          Let&apos;s go!
         </button>
         <div className="anim-arrow--right"></div>
       </div>

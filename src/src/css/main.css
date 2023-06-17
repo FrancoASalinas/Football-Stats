@@ -1,0 +1,266 @@
+@charset "UTF-8";
+.header {
+  height: 100vh;
+  background-color: #00bb2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.header label {
+  width: 60px;
+  height: 34px;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+}
+.header label input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.header label input:checked + span {
+  background-color: #007a1d;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+.header label input:checked + span:before {
+  transform: translateX(100%);
+}
+.header label span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  border-radius: 2rem;
+  transition: all 0.5s;
+  box-shadow: 1px 1px 5px #000;
+}
+.header label span::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  border-radius: 2rem;
+  transition: all 0.5s;
+}
+.header .title {
+  font-size: 5rem;
+  display: grid;
+  align-items: center;
+  line-height: 5rem;
+  position: relative;
+}
+.header .title *:not(.football-container) {
+  display: inline-block;
+  animation-name: title-up;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+}
+.header .title :nth-child(2) {
+  animation-name: title-down;
+}
+.header .title .football-container {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  animation-duration: 2s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+  animation-name: left;
+}
+.header .title .football-container .football {
+  width: 3rem;
+  animation-name: football;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  display: block;
+}
+.header .title .presentation {
+  font-size: 2rem;
+  width: 15rem;
+  position: relative;
+}
+.header .title .presentation span {
+  -webkit-margin-end: 0.4rem;
+          margin-inline-end: 0.4rem;
+  display: inline-block;
+  animation-duration: 2s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+  animation-name: left;
+}
+.header .title .presentation span.right {
+  animation-name: right;
+}
+.header .anim-button-container {
+  position: absolute;
+  top: 84%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  animation-name: title-up;
+  animation-duration: 1.5s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  font-size: 0.8rem;
+}
+.header .anim-button-container .button {
+  background-color: transparent;
+  border: solid 2px #000;
+  font-size: 2em;
+  padding: 0.8em;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.header .anim-button-container .anim-arrow::before, .header .anim-button-container .anim-arrow--right::before {
+  content: "╲╱";
+  font-weight: 600;
+  font-size: 1em;
+  animation-name: arrows;
+  animation-duration: 1.4s;
+  animation-delay: 0.8s;
+  animation-iteration-count: infinite;
+  display: block;
+}
+
+@media (min-width: 1000px) {
+  .header .title span {
+    font-size: 9rem;
+    line-height: 9rem;
+  }
+  .header .title .football-container {
+    right: 3rem;
+    bottom: 3rem;
+  }
+  .header .title .football-container .football {
+    width: 4rem;
+  }
+  .header .presentation {
+    width: 30rem;
+    font-size: 3rem;
+  }
+  .header .anim-button-container {
+    font-size: 1rem;
+  }
+}
+@keyframes football {
+  100% {
+    transform: rotate(720deg);
+  }
+}
+@keyframes left {
+  0% {
+    transform: translateX(40rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes right {
+  0% {
+    transform: translateX(-70rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes title-down {
+  0% {
+    transform: translateY(-30rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes title-up {
+  0% {
+    transform: translateY(35rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes arrows {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+body,
+html {
+  overflow-x: hidden;
+  background-color: #00bb2d;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.main .widget {
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  margin: 5rem auto;
+  background-color: #71c68e;
+  border-radius: 1.6rem;
+  border: 2px solid #000;
+  display: grid;
+  justify-content: center;
+}
+.main .widget .table {
+  width: 100%;
+  height: 25rem;
+}
+.main .widget .table,
+.main .widget .table td,
+.main .widget .table th {
+  border-collapse: collapse;
+  padding: 0.3rem 0.9rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3333333333);
+}
+
+@media (min-width: 750px) {
+  .main .widget {
+    width: 30rem;
+    font-size: 1.3rem;
+  }
+  .main .widget .table {
+    width: 25rem;
+  }
+  .main .widget .table,
+  .main .widget .table td,
+  .main .widget .table th {
+    border-collapse: collapse;
+    padding: 0.3rem 0.9rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3333333333);
+  }
+}/*# sourceMappingURL=main.css.map */

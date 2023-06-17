@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import { useRef } from 'react';
+import { useState, useRef, createContext } from 'react';
+
 import Header from './modules/Header';
 import Main from './modules/Main';
 import './main.scss';
 
+export const ApiContext = createContext();
+
 export default function App() {
   const [main, setMain] = useState(false);
   const [api, setApi] = useState(false);
+
   const mainRef = useRef(null);
 
   function handleCheck() {
@@ -15,15 +18,14 @@ export default function App() {
 
   function handleClick() {
     setMain(true);
-    console.log(mainRef.current);
   }
-
-  console.log(api);
 
   return (
     <>
-      <Header onCheck={handleCheck} onClick={handleClick} />
-      {main && <Main api={api} ref={mainRef} />}
+      <ApiContext.Provider value={api}>
+        <Header onCheck={handleCheck} onClick={handleClick} />
+        {main && <Main ref={mainRef} api={api} />}
+      </ApiContext.Provider>
     </>
   );
 }
